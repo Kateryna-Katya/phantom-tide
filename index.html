@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js"></script>
 
     <script type="module" crossorigin src="/phantom-tide/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/phantom-tide/assets/styles-DlCZKCpt.css">
+    <link rel="stylesheet" crossorigin href="/phantom-tide/assets/styles-Cc-VuGoz.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -411,6 +411,94 @@
           <a href="#contact" class="btn btn--primary">Оценить перспективы проекта</a>
       </div>
 
+  </div>
+</section>
+<section class="contact section" id="contact">
+  <div class="container">
+      <div class="contact__grid">
+
+          <div class="contact__info" data-aos="fade-right">
+              <h2 class="contact__title">
+                  Готовы <span class="text-accent">начать?</span>
+              </h2>
+              <p class="contact__desc">
+                  Бесплатная консультация по всем вопросам.
+                  Оставьте заявку, и мы поможем вам построить стратегию обучения.
+              </p>
+
+              <div class="contact__details">
+                  <div class="contact__item">
+                      <div class="contact__icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                      </div>
+                      <div>
+                          <span>Телефон (DE)</span>
+                          <strong>+49 30 847 12 99</strong>
+                      </div>
+                  </div>
+
+                  <div class="contact__item">
+                      <div class="contact__icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                      </div>
+                      <div>
+                          <span>Email</span>
+                          <strong>support@phantom-tide.life</strong>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="contact__form-wrapper" data-aos="fade-left">
+              <form class="contact__form" id="contact-form" novalidate>
+
+                  <div class="form-group">
+                      <label for="name" class="form-label">Ваше имя</label>
+                      <input type="text" id="name" class="form-input" placeholder="Иван Петров" required>
+                      <span class="error-msg" id="error-name">Введите имя</span>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" id="email" class="form-input" placeholder="hello@example.com" required>
+                      <span class="error-msg" id="error-email">Введите корректный email</span>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="phone" class="form-label">Телефон</label>
+                      <input type="tel" id="phone" class="form-input" placeholder="+49 ..." required>
+                      <span class="error-msg" id="error-phone">Введите номер телефона</span>
+                  </div>
+
+                  <div class="form-group captcha-group">
+                      <label for="captcha" class="form-label">Проверка: <span id="captcha-question"></span> = ?</label>
+                      <input type="number" id="captcha" class="form-input" placeholder="?" required>
+                      <span class="error-msg" id="error-captcha">Неверный ответ</span>
+                  </div>
+
+                  <div class="form-checkbox">
+                      <input type="checkbox" id="policy" required>
+                      <label for="policy">Я соглашаюсь с <a href="privacy.html">Политикой конфиденциальности</a></label>
+                  </div>
+
+                  <button type="submit" class="btn btn--primary btn--full" id="submit-btn">
+                      <span class="btn-text">Отправить заявку</span>
+                      <span class="loader"></span>
+                  </button>
+
+              </form>
+
+              <div class="success-message" id="success-message">
+                  <div class="success-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                  </div>
+                  <h3>Заявка принята!</h3>
+                  <p>Мы свяжемся с вами в течение 15 минут.</p>
+              </div>
+
+          </div>
+
+      </div>
   </div>
 </section>
     </main>
