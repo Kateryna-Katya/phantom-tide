@@ -1411,3 +1411,104 @@ img { max-width: 100%; display: block; }
         border-bottom: none;
     }
 }
+/* =========================================
+   12. LEGAL PAGES STYLING (Стилизация текста)
+   ========================================= */
+
+/* Шапка страницы */
+.page-header {
+  background-color: var(--color-light);
+  padding: 160px 0 60px; /* Отступ сверху под фиксированный хедер */
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-dark);
+  margin-bottom: 15px;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Контейнер текста */
+.page-content {
+  padding: 80px 0;
+  max-width: 800px; /* Узкая колонка для удобного чтения */
+  margin: 0 auto;
+  font-size: 1.05rem; /* Чуть крупнее стандартного для читаемости */
+}
+
+/* Заголовки внутри текста */
+.page-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-dark);
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.1); /* Легкая зеленая линия */
+}
+
+.page-content h2:first-child {
+  margin-top: 0;
+}
+
+/* Параграфы */
+.page-content p {
+  margin-bottom: 20px;
+  color: #475569; /* Slate 600 */
+  line-height: 1.8;
+}
+
+/* Списки с кастомными буллитами */
+.page-content ul {
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.page-content li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Зеленая точка вместо обычного маркера */
+.page-content li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px; /* Выравнивание по первой строке */
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.page-content li strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+/* Ссылки внутри текста */
+.page-content a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.page-content a:hover {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
