@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    
     // =========================================
     // 1. LENIS SMOOTH SCROLL (Плавный скролл)
     // =========================================
