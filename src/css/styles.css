@@ -778,3 +778,382 @@ img { max-width: 100%; display: block; }
         grid-template-columns: repeat(4, 1fr); /* Десктоп: 4 колонки в ряд */
     }
 }
+/* =========================================
+   8. INNOVATIONS SECTION (Dark Mode)
+   ========================================= */
+   .section--dark {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.innovations__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Фоновое свечение */
+.innovations__bg-glow {
+    position: absolute;
+    top: 50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Левая часть: Контент */
+.innovations__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.innovations__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.innovations__desc {
+    color: #94a3b8; /* Светло-серый для темной темы */
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.innovations__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.innovations__item {
+    display: flex;
+    gap: 15px;
+}
+
+.innovations__check {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(16, 185, 129, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.innovations__item strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--color-white);
+}
+
+.innovations__item p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+/* Правая часть: Окно кода */
+.innovations__visual {
+    position: relative;
+    z-index: 1;
+}
+
+.code-window {
+    background: #1e293b; /* Slate 800 */
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    transition: transform 0.3s ease;
+}
+
+.code-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -12px rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.code-window__header {
+    background: #0f172a;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-window__dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot--red { background: #ef4444; }
+.dot--yellow { background: #f59e0b; }
+.dot--green { background: #10b981; }
+
+.code-window__title {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.code-window__body {
+    padding: 25px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Подсветка синтаксиса (имитация) */
+.c-purple { color: #c084fc; }
+.c-blue { color: #60a5fa; }
+.c-string { color: #34d399; }
+.c-gray { color: #64748b; font-style: italic; }
+.c-attr { color: #f472b6; }
+
+/* Курсор мигающий */
+.code-window__cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--color-primary);
+    animation: blink 1s infinite;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.innovations__floating-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+    display: flex;
+    gap: 6px;
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .innovations__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+}
+/* =========================================
+   9. EDUCATION (TIMELINE)
+   ========================================= */
+   .education {
+    background-color: var(--color-light);
+}
+
+.education__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.education__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+.education__subtitle {
+    color: var(--color-gray);
+    font-size: 1.1rem;
+}
+
+/* Timeline Container */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Вертикальная линия */
+.timeline__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Mobile: Линия слева */
+    width: 2px;
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.timeline__item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 60px; /* Отступ под маркер */
+}
+
+.timeline__item:last-child {
+    margin-bottom: 0;
+}
+
+/* Маркер (Кружок с цифрой) */
+.timeline__marker {
+    position: absolute;
+    left: 0; /* Mobile: Слева */
+    top: 0;
+    width: 42px;
+    height: 42px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-primary);
+    z-index: 2;
+    box-shadow: 0 0 0 5px var(--color-light); /* Обводка под цвет фона */
+}
+
+.timeline__content {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border-left: 4px solid transparent;
+}
+
+.timeline__content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.1);
+    border-left-color: var(--color-primary);
+}
+
+.timeline__date {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.timeline__head {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.timeline__text {
+    font-size: 0.95rem;
+    color: var(--color-gray);
+    margin-bottom: 20px;
+}
+
+/* Теги навыков */
+.timeline__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timeline__tags li {
+    font-size: 0.8rem;
+    background: #f1f5f9;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #475569;
+    font-weight: 600;
+}
+
+.education__cta {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* DESKTOP TIMELINE (Шахматный порядок) */
+@media (min-width: 900px) {
+    .timeline__line {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline__item {
+        width: 50%; /* Занимает половину ширины */
+        padding-left: 0;
+        margin-bottom: 0; /* Убираем нижний отступ, используем padding */
+        padding-bottom: 60px;
+    }
+
+    .timeline__marker {
+        left: auto; /* Сброс */
+        top: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    /* Левые элементы */
+    .timeline__item--left {
+        left: 0;
+        padding-right: 50px; /* Отступ от центра */
+        text-align: right;
+    }
+
+    .timeline__item--left .timeline__marker {
+        right: -25px; /* По центру линии */
+    }
+
+    .timeline__item--left .timeline__tags {
+        justify-content: flex-end; /* Теги справа налево */
+    }
+
+    .timeline__item--left .timeline__content {
+        border-left: none;
+        border-right: 4px solid transparent;
+    }
+
+    .timeline__item--left .timeline__content:hover {
+        border-right-color: var(--color-primary);
+    }
+
+    /* Правые элементы */
+    .timeline__item--right {
+        left: 50%;
+        padding-left: 50px; /* Отступ от центра */
+    }
+
+    .timeline__item--right .timeline__marker {
+        left: -25px; /* По центру линии */
+    }
+}
