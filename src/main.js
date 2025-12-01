@@ -135,4 +135,87 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
   }
+
+  // =========================================
+    // 5. CONTACT FORM LOGIC
+    // =========================================
+
+    // A. Генерация Math Captcha
+    const captchaQuestion = document.getElementById('captcha-question');
+    const num1 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const num2 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const correctAnswer = num1 + num2;
+
+    if (captchaQuestion) {
+        captchaQuestion.textContent = `${num1} + ${num2}`;
+    }
+
+    // B. Обработка отправки
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('success-message');
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Останавливаем перезагрузку
+
+            // Сброс ошибок
+            document.querySelectorAll('.form-input').forEach(input => input.classList.remove('error'));
+
+            let isValid = true;
+
+            // 1. Валидация имени
+            const nameInput = document.getElementById('name');
+            if (nameInput.value.trim().length < 2) {
+                nameInput.classList.add('error');
+                isValid = false;
+            }
+
+            // 2. Валидация Email
+            const emailInput = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.classList.add('error');
+                isValid = false;
+            }
+
+            // 3. Валидация телефона (просто наличие)
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput.value.trim().length < 6) {
+                phoneInput.classList.add('error');
+                isValid = false;
+            }
+
+            // 4. Проверка Captcha
+            const captchaInput = document.getElementById('captcha');
+            if (parseInt(captchaInput.value) !== correctAnswer) {
+                captchaInput.classList.add('error');
+                document.getElementById('error-captcha').textContent = 'Неверная сумма';
+                isValid = false;
+            }
+
+            // 5. Чекбокс (HTML5 required уже проверяет, но на всякий случай)
+            const policyCheck = document.getElementById('policy');
+            if (!policyCheck.checked) {
+                isValid = false;
+                alert('Пожалуйста, подтвердите согласие с политикой конфиденциальности');
+            }
+
+            if (isValid) {
+                // Имитация отправки (AJAX)
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    submitBtn.classList.remove('loading');
+                    form.reset(); // Очищаем форму
+                    successMsg.classList.add('active'); // Показываем успех
+
+                    // (Опционально) Через 5 секунд вернуть форму?
+                    // setTimeout(() => successMsg.classList.remove('active'), 5000);
+
+                }, 1500); // 1.5 секунды задержка
+            }
+        });
+    }
 });

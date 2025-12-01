@@ -1157,3 +1157,213 @@ img { max-width: 100%; display: block; }
         left: -25px; /* По центру линии */
     }
 }
+/* =========================================
+   10. CONTACT SECTION
+   ========================================= */
+   .contact {
+    background-color: var(--color-white);
+    padding-bottom: 120px;
+}
+
+.contact__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+/* Info Side */
+.contact__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.contact__desc {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.contact__details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact__icon {
+    width: 50px;
+    height: 50px;
+    background: #ecfdf5; /* Very light green */
+    color: var(--color-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__item span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-gray);
+}
+
+.contact__item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+/* Form Side */
+.contact__form-wrapper {
+    background: var(--color-light);
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden; /* Чтобы успех не вылезал */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    background: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.form-input.error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.error-msg {
+    display: none;
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.form-input.error + .error-msg {
+    display: block;
+}
+
+/* Captcha */
+.captcha-group input {
+    width: 100px; /* Узкое поле для цифры */
+}
+
+/* Checkbox */
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+    color: var(--color-gray);
+}
+
+.form-checkbox a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Button & Loader */
+.btn--full {
+    width: 100%;
+}
+
+.loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn.loading .btn-text { display: none; }
+.btn.loading .loader { display: inline-block; }
+
+/* Success Message */
+.success-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+.success-message.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #d1fae5;
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .contact__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+    }
+}
