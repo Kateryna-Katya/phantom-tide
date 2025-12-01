@@ -1367,3 +1367,47 @@ img { max-width: 100%; display: block; }
         align-items: start;
     }
 }
+/* =========================================
+   11. COOKIE POPUP
+   ========================================= */
+   .cookie-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 350px;
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    z-index: 9999;
+    transform: translateY(150%); /* Скрыт по умолчанию (внизу) */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cookie-popup.active {
+    transform: translateY(0); /* Показываем */
+}
+
+.cookie-content p {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.cookie-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Mobile Cookie */
+@media (max-width: 480px) {
+    .cookie-popup {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 16px 16px 0 0;
+        border-bottom: none;
+    }
+}

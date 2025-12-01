@@ -218,4 +218,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // =========================================
+    // 6. COOKIE POPUP LOGIC
+    // =========================================
+    const cookiePopup = document.getElementById('cookie-popup');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+
+    // Проверяем, есть ли запись в LocalStorage
+    if (!localStorage.getItem('cookieAccepted')) {
+        // Если нет, показываем через 2 секунды
+        setTimeout(() => {
+            cookiePopup.classList.add('active');
+        }, 2000);
+    }
+
+    if (cookieAcceptBtn) {
+        cookieAcceptBtn.addEventListener('click', () => {
+            // Сохраняем согласие
+            localStorage.setItem('cookieAccepted', 'true');
+            // Скрываем попап
+            cookiePopup.classList.remove('active');
+        });
+    }
 });
